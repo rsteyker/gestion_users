@@ -7,6 +7,9 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/users.routes');
 const todosRoutes = require('./routes/todos.routes');
+const rolesRoutes = require('./routes/roles.routes');
+const categoriesRoutes = require('./routes/categories.routes');
+
 
 //Ejecutamos la función InitModel
 initModel();
@@ -29,8 +32,12 @@ app.get('/', (req, res) => {
     res.send('Servidor funcionando OK')
 });
 
+
 app.use(userRoutes);
 app.use(todosRoutes);
+app.use(rolesRoutes);
+app.use(categoriesRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`servidor escuchando en el puerto ${PORT}`)

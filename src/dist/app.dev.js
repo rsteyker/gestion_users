@@ -13,7 +13,11 @@ var cors = require('cors');
 
 var userRoutes = require('./routes/users.routes');
 
-var todosRoutes = require('./routes/todos.routes'); //Ejecutamos la función InitModel
+var todosRoutes = require('./routes/todos.routes');
+
+var rolesRoutes = require('./routes/roles.routes');
+
+var categoriesRoutes = require('./routes/categories.routes'); //Ejecutamos la función InitModel
 
 
 initModel(); //Creamos la instancia
@@ -33,6 +37,8 @@ app.get('/', function (req, res) {
 });
 app.use(userRoutes);
 app.use(todosRoutes);
+app.use(rolesRoutes);
+app.use(categoriesRoutes);
 app.listen(PORT, function () {
   console.log("servidor escuchando en el puerto ".concat(PORT));
 });
