@@ -3,6 +3,7 @@ const express = require('express');
 const db = require('./utils/database');
 require('dotenv').config();
 const initModel = require('./model/initModel');
+const cors = require('cors');
 
 const userRoutes = require('./routes/users.routes');
 const todosRoutes = require('./routes/todos.routes');
@@ -12,6 +13,7 @@ initModel();
 
 //Creamos la instancia
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 8000;
